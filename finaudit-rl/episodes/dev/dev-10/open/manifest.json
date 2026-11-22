@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-0176db18cc68eacd",
+  "base_currency": "EUR",
+  "period_start": "2026-07-01T00:00:00+05:00",
+  "period_end": "2026-09-30T23:59:59+05:00",
+  "timezone": "Asia/Almaty",
+  "n_records": 329,
+  "n_documents": 132,
+  "n_invoices": 60,
+  "n_payments": 72,
+  "currency_minor_units": {
+    "USD": 2,
+    "EUR": 2,
+    "GBP": 2,
+    "KZT": 2,
+    "AED": 2,
+    "JPY": 0
+  },
+  "rounding": {
+    "money": "integer_minor_units",
+    "mode": "half_up",
+    "fx_decimals": 8,
+    "amount_tolerance_minor": 2,
+    "amount_tolerance_bps": 5
+  },
+  "limits": {
+    "max_steps": 100,
+    "page_size": 50,
+    "max_findings": 30,
+    "max_evidence_ids": 10,
+    "max_explanation_chars": 1000,
+    "time_limit_seconds": 60
+  },
+  "seed_commitment": "0176db18cc68eacdbf0095c05faade5068e685a9bc25227ec4822d4e7cf913ad",
+  "difficulty": "hard",
+  "config": {
+    "difficulty": "hard",
+    "max_steps": 100
+  }
+}

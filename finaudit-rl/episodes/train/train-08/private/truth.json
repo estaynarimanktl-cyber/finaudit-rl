@@ -1,0 +1,262 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-c0b88daf9e5cec4f",
+  "base_currency": "USD",
+  "period_start": "2026-01-01T00:00:00+04:00",
+  "period_end": "2026-03-31T23:59:59+04:00",
+  "n_issues": 8,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "affected_ids": [
+        "DOC-I-F3EF-0018",
+        "DOC-I-F3EF-0036",
+        "DOC-P-F3EF-0038",
+        "L000230"
+      ],
+      "expected_amount_minor": 406400,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0018",
+          "DOC-I-F3EF-0036",
+          "DOC-P-F3EF-0038",
+          "L000230",
+          "L000231",
+          "policy"
+        ]
+      ],
+      "description": "The payment references one invoice but the ledger allocation was posted to a different invoice; the intended invoice remains open.",
+      "causal_change": {
+        "payment_doc": "DOC-P-F3EF-0038",
+        "invoice_doc": "DOC-I-F3EF-0018",
+        "subtype": "wrong_invoice",
+        "entry_id": "E00104"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "affected_ids": [
+        "DOC-I-F3EF-0010",
+        "DOC-I-F3EF-0019",
+        "DOC-P-F3EF-0035",
+        "L000224"
+      ],
+      "expected_amount_minor": 638600,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0010",
+          "DOC-I-F3EF-0019",
+          "DOC-P-F3EF-0035",
+          "L000223",
+          "L000224",
+          "policy"
+        ]
+      ],
+      "description": "The payment references one invoice but the ledger allocation was posted to a different invoice; the intended invoice remains open.",
+      "causal_change": {
+        "payment_doc": "DOC-P-F3EF-0035",
+        "invoice_doc": "DOC-I-F3EF-0019",
+        "subtype": "wrong_invoice",
+        "entry_id": "E00101"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-F3EF-0027",
+        "L000053",
+        "L000054"
+      ],
+      "expected_amount_minor": 9285,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0027",
+          "L000053",
+          "L000054",
+          "fx:2026-02-13:GBP:USD",
+          "policy"
+        ],
+        [
+          "DOC-I-F3EF-0027",
+          "L000053",
+          "L000054",
+          "fx:2026-02-13:GBP:USD",
+          "fx:2026-02-20:GBP:USD",
+          "policy"
+        ]
+      ],
+      "description": "The GBP invoice was translated at the rate for 2026-02-20 instead of the policy date 2026-02-13; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00027",
+        "kind": "accrual",
+        "correct_day": "2026-02-13",
+        "wrong_day": "2026-02-20",
+        "correct_rate": "1.27041823",
+        "wrong_rate": "1.28245852"
+      }
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "affected_ids": [
+        "DOC-I-F3EF-0024",
+        "DOC-P-F3EF-0024",
+        "L000196",
+        "L000355"
+      ],
+      "expected_amount_minor": 975125,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0024",
+          "DOC-P-F3EF-0024",
+          "L000195",
+          "L000196",
+          "L000355",
+          "policy"
+        ]
+      ],
+      "description": "Only part of the payment was allocated to the referenced invoice; the rest was parked in suspense, leaving an unexplained open balance.",
+      "causal_change": {
+        "payment_doc": "DOC-P-F3EF-0024",
+        "invoice_doc": "DOC-I-F3EF-0024",
+        "subtype": "partial_allocation",
+        "entry_id": "E00090"
+      }
+    },
+    {
+      "issue_id": "ISS-005",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-F3EF-0066",
+        "L000131",
+        "L000132"
+      ],
+      "expected_amount_minor": 1793,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0066",
+          "L000131",
+          "L000132",
+          "fx:2026-03-23:KZT:USD",
+          "policy"
+        ],
+        [
+          "DOC-I-F3EF-0066",
+          "L000131",
+          "L000132",
+          "fx:2026-03-23:KZT:USD",
+          "fx:2026-03-30:KZT:USD",
+          "policy"
+        ]
+      ],
+      "description": "The KZT invoice was translated at the rate for 2026-03-30 instead of the policy date 2026-03-23; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00066",
+        "kind": "accrual",
+        "correct_day": "2026-03-23",
+        "wrong_day": "2026-03-30",
+        "correct_rate": "0.00221198",
+        "wrong_rate": "0.00220069"
+      }
+    },
+    {
+      "issue_id": "ISS-006",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000254",
+        "L000255",
+        "L000356",
+        "L000357"
+      ],
+      "expected_amount_minor": 426083,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-F3EF-0048",
+          "L000254",
+          "L000255",
+          "L000356",
+          "L000357"
+        ]
+      ],
+      "description": "The source document DOC-P-F3EF-0048 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00114",
+        "duplicate_entry": "E00156",
+        "source_doc": "DOC-P-F3EF-0048",
+        "duplicate_timestamp": "2026-04-20T16:53:00+04:00"
+      }
+    },
+    {
+      "issue_id": "ISS-007",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-F3EF-0009",
+        "L000156",
+        "L000157"
+      ],
+      "expected_amount_minor": 632352,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-F3EF-0009",
+          "L000156",
+          "L000157",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-04-05T10:38:00+04:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00075",
+        "doc_period": 0,
+        "old_timestamp": "2026-03-24T15:54:00+04:00",
+        "new_timestamp": "2026-04-05T10:38:00+04:00"
+      }
+    },
+    {
+      "issue_id": "ISS-008",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000101",
+        "L000102",
+        "L000358",
+        "L000359"
+      ],
+      "expected_amount_minor": 1397711,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-F3EF-0051",
+          "L000101",
+          "L000102",
+          "L000358",
+          "L000359"
+        ]
+      ],
+      "description": "The source document DOC-I-F3EF-0051 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00051",
+        "duplicate_entry": "E00157",
+        "source_doc": "DOC-I-F3EF-0051",
+        "duplicate_timestamp": "2026-02-18T12:34:01+04:00"
+      }
+    }
+  ]
+}

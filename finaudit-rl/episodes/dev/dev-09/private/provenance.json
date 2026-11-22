@@ -1,0 +1,369 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-3aa1c13b92d3947c",
+  "seed": 2209,
+  "config": {
+    "difficulty": "hard",
+    "n_issues": 3,
+    "error_types": [
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff",
+      "duplicate_account"
+    ],
+    "interacting": true,
+    "clean": false,
+    "n_invoices": 62,
+    "n_payments": 50,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Steppe Orchard Foods LLP",
+    "entities": [
+      "ENT-A",
+      "ENT-B",
+      "ENT-C"
+    ],
+    "base_currency": "USD",
+    "timezone": "Asia/Almaty",
+    "period": "Q2-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 348,
+    "n_invoices": 62,
+    "n_payments": 76,
+    "n_entries": 148,
+    "balanced": true,
+    "final_ledger_rows": 349,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00119",
+        "payment_doc": "DOC-P-BF00-0057",
+        "invoice_doc": "DOC-I-BF00-0059",
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1000",
+            "debit_minor": 314203,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 311881,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 2322,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1000",
+            "debit_minor": 314203,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155403,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 2322,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000349",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 156478,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000349"
+      ],
+      "rows_modified": [
+        "L000271"
+      ],
+      "expected_amount_minor": 156478
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00119",
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1000",
+            "debit_minor": 314203,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155403,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 2322,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000349",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 156478,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ],
+        "kind": "settlement"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1000",
+            "debit_minor": 310544,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155403,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "5100",
+            "debit_minor": 1337,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000349",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 156478,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000270",
+        "L000272"
+      ],
+      "expected_amount_minor": 3659
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00119",
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1000",
+            "debit_minor": 310544,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155403,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "5100",
+            "debit_minor": 1337,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000349",
+            "timestamp": "2026-04-15T09:42:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 156478,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ],
+        "doc_period": 0
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-07-01T11:26:00+05:00",
+            "account": "1000",
+            "debit_minor": 310544,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-07-01T11:26:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155403,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-BF00-0059",
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000272",
+            "timestamp": "2026-07-01T11:26:00+05:00",
+            "account": "5100",
+            "debit_minor": 1337,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          },
+          {
+            "row_id": "L000349",
+            "timestamp": "2026-07-01T11:26:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 156478,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-BF00-0057"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000270",
+        "L000271",
+        "L000272",
+        "L000349"
+      ],
+      "expected_amount_minor": 311881
+    }
+  ],
+  "validation": {}
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-2ab9d2e67034b574",
+  "base_currency": "USD",
+  "period_start": "2026-10-01T00:00:00+05:00",
+  "period_end": "2026-12-31T23:59:59+05:00",
+  "n_issues": 3,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "affected_ids": [
+        "DOC-I-C23D-0002",
+        "DOC-P-C23D-0031",
+        "L000194",
+        "L000350"
+      ],
+      "expected_amount_minor": 15258,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-C23D-0002",
+          "DOC-P-C23D-0031",
+          "L000193",
+          "L000194",
+          "L000350",
+          "policy"
+        ]
+      ],
+      "description": "Only part of the payment was allocated to the referenced invoice; the rest was parked in suspense, leaving an unexplained open balance.",
+      "causal_change": {
+        "payment_doc": "DOC-P-C23D-0031",
+        "invoice_doc": "DOC-I-C23D-0002",
+        "subtype": "partial_allocation",
+        "entry_id": "E00091"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-C23D-0031",
+        "L000193",
+        "L000351"
+      ],
+      "expected_amount_minor": 163,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-C23D-0031",
+          "L000193",
+          "L000351",
+          "fx:2026-12-18:KZT:USD",
+          "policy"
+        ],
+        [
+          "DOC-P-C23D-0031",
+          "L000193",
+          "L000351",
+          "fx:2026-12-18:KZT:USD",
+          "fx:2026-12-26:KZT:USD",
+          "policy"
+        ]
+      ],
+      "description": "The KZT payment was translated at the rate for 2026-12-26 instead of the policy date 2026-12-18; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00091",
+        "kind": "settlement",
+        "correct_day": "2026-12-18",
+        "wrong_day": "2026-12-26",
+        "correct_rate": "0.00222598",
+        "wrong_rate": "0.00223296"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-C23D-0031",
+        "L000193",
+        "L000194",
+        "L000350",
+        "L000351"
+      ],
+      "expected_amount_minor": 52139,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-C23D-0031",
+          "L000193",
+          "L000194",
+          "L000350",
+          "L000351",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2027-01-03T13:33:00+05:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00091",
+        "doc_period": 0,
+        "old_timestamp": "2026-12-18T16:25:00+05:00",
+        "new_timestamp": "2027-01-03T13:33:00+05:00"
+      }
+    }
+  ]
+}

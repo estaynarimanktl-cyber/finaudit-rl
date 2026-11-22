@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-369039955bab0b63",
+  "base_currency": "EUR",
+  "period_start": "2026-04-01T00:00:00+02:00",
+  "period_end": "2026-06-30T23:59:59+02:00",
+  "n_issues": 5,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-I-FC29-0018",
+        "L000035",
+        "L000036"
+      ],
+      "expected_amount_minor": 3387186,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-FC29-0018",
+          "L000035",
+          "L000036",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-07-04T13:50:00+02:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00018",
+        "doc_period": 0,
+        "old_timestamp": "2026-06-07T08:48:00+02:00",
+        "new_timestamp": "2026-07-04T13:50:00+02:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "affected_ids": [
+        "DOC-I-FC29-0022",
+        "DOC-P-FC29-0011",
+        "L000152",
+        "L000323"
+      ],
+      "expected_amount_minor": 589691,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-FC29-0022",
+          "DOC-P-FC29-0011",
+          "L000151",
+          "L000152",
+          "L000323",
+          "policy"
+        ]
+      ],
+      "description": "Only part of the payment was allocated to the referenced invoice; the rest was parked in suspense, leaving an unexplained open balance.",
+      "causal_change": {
+        "payment_doc": "DOC-P-FC29-0011",
+        "invoice_doc": "DOC-I-FC29-0022",
+        "subtype": "partial_allocation",
+        "entry_id": "E00073"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-I-FC29-0047",
+        "L000093",
+        "L000094"
+      ],
+      "expected_amount_minor": 1777291,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-FC29-0047",
+          "L000093",
+          "L000094",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-07-05T16:03:00+02:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00047",
+        "doc_period": 0,
+        "old_timestamp": "2026-04-02T13:35:00+02:00",
+        "new_timestamp": "2026-07-05T16:03:00+02:00"
+      }
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-FC29-0014",
+        "L000159",
+        "L000161"
+      ],
+      "expected_amount_minor": 15815,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-P-FC29-0014",
+          "L000159",
+          "L000161",
+          "fx:2026-06-30:GBP:EUR",
+          "policy"
+        ],
+        [
+          "DOC-P-FC29-0014",
+          "L000159",
+          "L000161",
+          "fx:2026-06-30:GBP:EUR",
+          "fx:2026-07-09:GBP:EUR",
+          "policy"
+        ]
+      ],
+      "description": "The GBP payment was translated at the rate for 2026-07-09 instead of the policy date 2026-06-30; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00076",
+        "kind": "settlement",
+        "correct_day": "2026-06-30",
+        "wrong_day": "2026-07-09",
+        "correct_rate": "1.23059477",
+        "wrong_rate": "1.24446903"
+      }
+    },
+    {
+      "issue_id": "ISS-005",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000039",
+        "L000040",
+        "L000324",
+        "L000325"
+      ],
+      "expected_amount_minor": 1029127,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-FC29-0020",
+          "L000039",
+          "L000040",
+          "L000324",
+          "L000325"
+        ]
+      ],
+      "description": "The source document DOC-I-FC29-0020 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00020",
+        "duplicate_entry": "E00143",
+        "source_doc": "DOC-I-FC29-0020",
+        "duplicate_timestamp": "2026-05-17T15:56:01+02:00"
+      }
+    }
+  ]
+}

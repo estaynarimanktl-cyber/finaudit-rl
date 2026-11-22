@@ -1,0 +1,613 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-c0b88daf9e5cec4f",
+  "seed": 1108,
+  "config": {
+    "difficulty": "hard",
+    "n_issues": 8,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": false,
+    "n_invoices": 66,
+    "n_payments": 54,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Koktem Health Supplies",
+    "entities": [
+      "ENT-A",
+      "ENT-B",
+      "ENT-C"
+    ],
+    "base_currency": "USD",
+    "timezone": "Asia/Dubai",
+    "period": "Q1-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 354,
+    "n_invoices": 66,
+    "n_payments": 79,
+    "n_entries": 155,
+    "balanced": true,
+    "final_ledger_rows": 359,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00104",
+        "payment_doc": "DOC-P-F3EF-0038",
+        "invoice_doc": "DOC-I-F3EF-0018",
+        "rows": [
+          {
+            "row_id": "L000230",
+            "timestamp": "2026-03-18T11:54:00+04:00",
+            "account": "2000",
+            "debit_minor": 406400,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0018",
+            "payment_id": "PAY-F3EF-0038"
+          },
+          {
+            "row_id": "L000231",
+            "timestamp": "2026-03-18T11:54:00+04:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 406400,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0038"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000230",
+            "timestamp": "2026-03-18T11:54:00+04:00",
+            "account": "2000",
+            "debit_minor": 406400,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0036",
+            "payment_id": "PAY-F3EF-0038"
+          },
+          {
+            "row_id": "L000231",
+            "timestamp": "2026-03-18T11:54:00+04:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 406400,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0038"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000230"
+      ],
+      "expected_amount_minor": 406400
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00101",
+        "payment_doc": "DOC-P-F3EF-0035",
+        "invoice_doc": "DOC-I-F3EF-0019",
+        "rows": [
+          {
+            "row_id": "L000223",
+            "timestamp": "2026-05-18T14:41:00+04:00",
+            "account": "1000",
+            "debit_minor": 638600,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0035"
+          },
+          {
+            "row_id": "L000224",
+            "timestamp": "2026-05-18T14:41:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 638600,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0019",
+            "payment_id": "PAY-F3EF-0035"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000223",
+            "timestamp": "2026-05-18T14:41:00+04:00",
+            "account": "1000",
+            "debit_minor": 638600,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0035"
+          },
+          {
+            "row_id": "L000224",
+            "timestamp": "2026-05-18T14:41:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 638600,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0010",
+            "payment_id": "PAY-F3EF-0035"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000224"
+      ],
+      "expected_amount_minor": 638600
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00027",
+        "rows": [
+          {
+            "row_id": "L000053",
+            "timestamp": "2026-02-13T17:18:00+04:00",
+            "account": "5000",
+            "debit_minor": 979619,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0027",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000054",
+            "timestamp": "2026-02-13T17:18:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 979619,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0027",
+            "payment_id": null
+          }
+        ],
+        "kind": "accrual"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000053",
+            "timestamp": "2026-02-13T17:18:00+04:00",
+            "account": "5000",
+            "debit_minor": 988904,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0027",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000054",
+            "timestamp": "2026-02-13T17:18:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 988904,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0027",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000053",
+        "L000054"
+      ],
+      "expected_amount_minor": 9285
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00090",
+        "payment_doc": "DOC-P-F3EF-0024",
+        "invoice_doc": "DOC-I-F3EF-0024",
+        "rows": [
+          {
+            "row_id": "L000195",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "1000",
+            "debit_minor": 1855457,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0024"
+          },
+          {
+            "row_id": "L000196",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 1795263,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0024",
+            "payment_id": "PAY-F3EF-0024"
+          },
+          {
+            "row_id": "L000197",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 60194,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0024"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000195",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "1000",
+            "debit_minor": 1855457,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0024"
+          },
+          {
+            "row_id": "L000196",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 820138,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0024",
+            "payment_id": "PAY-F3EF-0024"
+          },
+          {
+            "row_id": "L000197",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 60194,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0024"
+          },
+          {
+            "row_id": "L000355",
+            "timestamp": "2026-03-08T10:21:00+04:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 975125,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0024"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000355"
+      ],
+      "rows_modified": [
+        "L000196"
+      ],
+      "expected_amount_minor": 975125
+    },
+    {
+      "issue_id": "ISS-005",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00066",
+        "rows": [
+          {
+            "row_id": "L000131",
+            "timestamp": "2026-03-24T16:18:00+04:00",
+            "account": "5000",
+            "debit_minor": 351236,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0066",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000132",
+            "timestamp": "2026-03-24T16:18:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 351236,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0066",
+            "payment_id": null
+          }
+        ],
+        "kind": "accrual"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000131",
+            "timestamp": "2026-03-24T16:18:00+04:00",
+            "account": "5000",
+            "debit_minor": 349443,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0066",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000132",
+            "timestamp": "2026-03-24T16:18:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 349443,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0066",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000131",
+        "L000132"
+      ],
+      "expected_amount_minor": 1793
+    },
+    {
+      "issue_id": "ISS-006",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00114",
+        "source_doc": "DOC-P-F3EF-0048",
+        "rows": [
+          {
+            "row_id": "L000254",
+            "timestamp": "2026-04-20T16:53:00+04:00",
+            "account": "2000",
+            "debit_minor": 426083,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0052",
+            "payment_id": "PAY-F3EF-0048"
+          },
+          {
+            "row_id": "L000255",
+            "timestamp": "2026-04-20T16:53:00+04:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 426083,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0048"
+          }
+        ],
+        "total_debit": 426083
+      },
+      "after": {
+        "entry_id": "E00156",
+        "rows": [
+          {
+            "row_id": "L000356",
+            "timestamp": "2026-04-20T16:53:00+04:00",
+            "account": "2000",
+            "debit_minor": 426083,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-F3EF-0052",
+            "payment_id": "PAY-F3EF-0048"
+          },
+          {
+            "row_id": "L000357",
+            "timestamp": "2026-04-20T16:53:00+04:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 426083,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0048"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000356",
+        "L000357"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 426083
+    },
+    {
+      "issue_id": "ISS-007",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00075",
+        "rows": [
+          {
+            "row_id": "L000156",
+            "timestamp": "2026-03-24T15:54:00+04:00",
+            "account": "1000",
+            "debit_minor": 632352,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0009"
+          },
+          {
+            "row_id": "L000157",
+            "timestamp": "2026-03-24T15:54:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 632352,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0056",
+            "payment_id": "PAY-F3EF-0009"
+          }
+        ],
+        "doc_period": 0
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000156",
+            "timestamp": "2026-04-05T10:38:00+04:00",
+            "account": "1000",
+            "debit_minor": 632352,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-F3EF-0009"
+          },
+          {
+            "row_id": "L000157",
+            "timestamp": "2026-04-05T10:38:00+04:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 632352,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-F3EF-0056",
+            "payment_id": "PAY-F3EF-0009"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000156",
+        "L000157"
+      ],
+      "expected_amount_minor": 632352
+    },
+    {
+      "issue_id": "ISS-008",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00051",
+        "source_doc": "DOC-I-F3EF-0051",
+        "rows": [
+          {
+            "row_id": "L000101",
+            "timestamp": "2026-02-18T12:34:00+04:00",
+            "account": "1100",
+            "debit_minor": 1397711,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0051",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000102",
+            "timestamp": "2026-02-18T12:34:00+04:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 1397711,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0051",
+            "payment_id": null
+          }
+        ],
+        "total_debit": 1397711
+      },
+      "after": {
+        "entry_id": "E00157",
+        "rows": [
+          {
+            "row_id": "L000358",
+            "timestamp": "2026-02-18T12:34:01+04:00",
+            "account": "1100",
+            "debit_minor": 1397711,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0051",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000359",
+            "timestamp": "2026-02-18T12:34:01+04:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 1397711,
+            "currency": "USD",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-F3EF-0051",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [
+        "L000358",
+        "L000359"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 1397711
+    }
+  ],
+  "validation": {}
+}

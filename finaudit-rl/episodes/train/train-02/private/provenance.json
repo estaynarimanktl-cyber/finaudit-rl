@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-958405bb3520cd98",
+  "seed": 1102,
+  "config": {
+    "difficulty": "easy",
+    "n_issues": 1,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": false,
+    "n_invoices": 52,
+    "n_payments": 40,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Aral Meridian Logistics LLP",
+    "entities": [
+      "ENT-A"
+    ],
+    "base_currency": "EUR",
+    "timezone": "Asia/Dubai",
+    "period": "Q4-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 271,
+    "n_invoices": 52,
+    "n_payments": 59,
+    "n_entries": 121,
+    "balanced": true,
+    "final_ledger_rows": 271,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00032",
+        "rows": [
+          {
+            "row_id": "L000063",
+            "timestamp": "2026-09-27T16:25:00+04:00",
+            "account": "5000",
+            "debit_minor": 2866646,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-8461-0032",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000064",
+            "timestamp": "2026-09-27T16:25:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 2866646,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-8461-0032",
+            "payment_id": null
+          }
+        ],
+        "doc_period": -1
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000063",
+            "timestamp": "2027-01-02T13:01:00+04:00",
+            "account": "5000",
+            "debit_minor": 2866646,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-8461-0032",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000064",
+            "timestamp": "2027-01-02T13:01:00+04:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 2866646,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-8461-0032",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000063",
+        "L000064"
+      ],
+      "expected_amount_minor": 2866646
+    }
+  ],
+  "validation": {}
+}

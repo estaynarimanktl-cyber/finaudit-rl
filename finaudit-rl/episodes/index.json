@@ -1,0 +1,561 @@
+{
+  "episodes": [
+    {
+      "name": "dev-01",
+      "split": "dev",
+      "seed": 2201,
+      "config": {
+        "difficulty": "easy",
+        "n_issues": 0,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": true,
+        "n_invoices": 50,
+        "n_payments": 40,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-01",
+      "episode_id": "ep-81aa111d8b830e01",
+      "n_records": 243,
+      "n_documents": 103,
+      "n_issues": 0,
+      "fingerprint": "96a48708eec983e6b5e84d6c38bb64ae3a8d5da382482c866c93e2555738fa88"
+    },
+    {
+      "name": "dev-02",
+      "split": "dev",
+      "seed": 2202,
+      "config": {
+        "difficulty": "easy",
+        "n_issues": 1,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 53,
+        "n_payments": 41,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-02",
+      "episode_id": "ep-dafad527a8cdcfc2",
+      "n_records": 295,
+      "n_documents": 118,
+      "n_issues": 1,
+      "fingerprint": "1c25c4aac392ce678abeda4656964738d9e49381874773dbce613e63b02a59b4"
+    },
+    {
+      "name": "dev-03",
+      "split": "dev",
+      "seed": 2203,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 2,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 56,
+        "n_payments": 44,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-03",
+      "episode_id": "ep-63fe0b07fc8fc0c3",
+      "n_records": 318,
+      "n_documents": 127,
+      "n_issues": 2,
+      "fingerprint": "919a6d840cdd2493d2945b0ff45249d67d4e82e49ebd38e4a75f39d738750c0b"
+    },
+    {
+      "name": "dev-04",
+      "split": "dev",
+      "seed": 2204,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 3,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 59,
+        "n_payments": 46,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-04",
+      "episode_id": "ep-3685fb6160e30048",
+      "n_records": 299,
+      "n_documents": 122,
+      "n_issues": 3,
+      "fingerprint": "ad10285ec257ba3975ca24ef96055d2ae6ab070d8edab1e0ea0c9dc488a7dc35"
+    },
+    {
+      "name": "dev-05",
+      "split": "dev",
+      "seed": 2205,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 4,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 61,
+        "n_payments": 49,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-05",
+      "episode_id": "ep-aa42bbaefdfeba35",
+      "n_records": 307,
+      "n_documents": 126,
+      "n_issues": 4,
+      "fingerprint": "75d94125ad58b8d0ed247706c44926550d9c742e49973b6a0f5e7e8761be547c"
+    },
+    {
+      "name": "dev-06",
+      "split": "dev",
+      "seed": 2206,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 5,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 63,
+        "n_payments": 51,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-06",
+      "episode_id": "ep-cd9f563ac6c09f2c",
+      "n_records": 343,
+      "n_documents": 143,
+      "n_issues": 5,
+      "fingerprint": "e9b509cfc7b6bc1dd3fc26ee211bacac71eb7370df301101020ec55a42b2c573"
+    },
+    {
+      "name": "dev-07",
+      "split": "dev",
+      "seed": 2207,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 6,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 65,
+        "n_payments": 53,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-07",
+      "episode_id": "ep-bc088ca16baca0d5",
+      "n_records": 333,
+      "n_documents": 135,
+      "n_issues": 6,
+      "fingerprint": "649aa2f64e1d5428c437224e7e7f3c5334c819d5c612acd5acd53ed0d3984110"
+    },
+    {
+      "name": "dev-08",
+      "split": "dev",
+      "seed": 2208,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 8,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 68,
+        "n_payments": 56,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-08",
+      "episode_id": "ep-e7ccd2dd0fdf5b79",
+      "n_records": 338,
+      "n_documents": 145,
+      "n_issues": 8,
+      "fingerprint": "059f689b2b0496204e7483803545b41295e7392f33fb5be85b3ad3d2241e2988"
+    },
+    {
+      "name": "dev-09",
+      "split": "dev",
+      "seed": 2209,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 3,
+        "error_types": [
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff",
+          "duplicate_account"
+        ],
+        "interacting": true,
+        "clean": false,
+        "n_invoices": 62,
+        "n_payments": 50,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-09",
+      "episode_id": "ep-3aa1c13b92d3947c",
+      "n_records": 349,
+      "n_documents": 138,
+      "n_issues": 3,
+      "fingerprint": "0fc18b42d5ce6027e46500d9d2e41e904c907bd416a132e357f5a849d3d0c6bb"
+    },
+    {
+      "name": "dev-10",
+      "split": "dev",
+      "seed": 2210,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 3,
+        "error_types": [
+          "duplicate_account",
+          "fx_conversion"
+        ],
+        "interacting": true,
+        "clean": false,
+        "n_invoices": 60,
+        "n_payments": 48,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "dev/dev-10",
+      "episode_id": "ep-0176db18cc68eacd",
+      "n_records": 329,
+      "n_documents": 132,
+      "n_issues": 3,
+      "fingerprint": "31674020ebdd052f14238c8ec4340f46d73ff60725dad6605ecfbd71607a241f"
+    },
+    {
+      "name": "train-01",
+      "split": "train",
+      "seed": 1101,
+      "config": {
+        "difficulty": "easy",
+        "n_issues": 0,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": true,
+        "n_invoices": 48,
+        "n_payments": 38,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-01",
+      "episode_id": "ep-489fc67a2e709a01",
+      "n_records": 284,
+      "n_documents": 114,
+      "n_issues": 0,
+      "fingerprint": "2656152f9803dbaae86c3d0942dfd5b4b48cc87adde4c1e5a14424347c29b467"
+    },
+    {
+      "name": "train-02",
+      "split": "train",
+      "seed": 1102,
+      "config": {
+        "difficulty": "easy",
+        "n_issues": 1,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 52,
+        "n_payments": 40,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-02",
+      "episode_id": "ep-958405bb3520cd98",
+      "n_records": 271,
+      "n_documents": 111,
+      "n_issues": 1,
+      "fingerprint": "fdaad866d59ef248ff465891024e449c4a001c2f8d6bc89ca696da6ba2a46b04"
+    },
+    {
+      "name": "train-03",
+      "split": "train",
+      "seed": 1103,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 2,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 55,
+        "n_payments": 42,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-03",
+      "episode_id": "ep-2092768d6ff2851b",
+      "n_records": 294,
+      "n_documents": 123,
+      "n_issues": 2,
+      "fingerprint": "232fba81c1a58a3fc5e9f6def1997a245f5b377d58bb38ea889ea3f95ecd9a63"
+    },
+    {
+      "name": "train-04",
+      "split": "train",
+      "seed": 1104,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 3,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 58,
+        "n_payments": 45,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-04",
+      "episode_id": "ep-7e61a0d44d098db3",
+      "n_records": 287,
+      "n_documents": 118,
+      "n_issues": 3,
+      "fingerprint": "b24b484984efa90aeeee6d3b01a7514fa1327a0b6c47346ea6baee49c2d8ecc6"
+    },
+    {
+      "name": "train-05",
+      "split": "train",
+      "seed": 1105,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 4,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 60,
+        "n_payments": 48,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-05",
+      "episode_id": "ep-911e7cbb60e92950",
+      "n_records": 323,
+      "n_documents": 133,
+      "n_issues": 4,
+      "fingerprint": "bc65501d1135407a888506bdc2a605492d36a073e7d5fd27d6f08e9353596a30"
+    },
+    {
+      "name": "train-06",
+      "split": "train",
+      "seed": 1106,
+      "config": {
+        "difficulty": "medium",
+        "n_issues": 5,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 62,
+        "n_payments": 50,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-06",
+      "episode_id": "ep-369039955bab0b63",
+      "n_records": 325,
+      "n_documents": 132,
+      "n_issues": 5,
+      "fingerprint": "b4441d3fb2e380cbe7d59ed3ffe6cab7a9ad40f5b6ba44f33f7a27044e138c8f"
+    },
+    {
+      "name": "train-07",
+      "split": "train",
+      "seed": 1107,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 6,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 64,
+        "n_payments": 52,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-07",
+      "episode_id": "ep-0d54f525eeac0f9e",
+      "n_records": 321,
+      "n_documents": 132,
+      "n_issues": 6,
+      "fingerprint": "7e7387225927d2281f4b7f155731a931be149c85b2d122c8bfb2fc2563fdbc92"
+    },
+    {
+      "name": "train-08",
+      "split": "train",
+      "seed": 1108,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 8,
+        "error_types": [
+          "duplicate_account",
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff"
+        ],
+        "interacting": false,
+        "clean": false,
+        "n_invoices": 66,
+        "n_payments": 54,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-08",
+      "episode_id": "ep-c0b88daf9e5cec4f",
+      "n_records": 359,
+      "n_documents": 145,
+      "n_issues": 8,
+      "fingerprint": "9659e4245b4ebb8cf312a0dd95bbfe1ca71359a11ed57bd9ab0d5394d59bab37"
+    },
+    {
+      "name": "train-09",
+      "split": "train",
+      "seed": 1109,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 3,
+        "error_types": [
+          "payment_allocation",
+          "fx_conversion",
+          "period_cutoff",
+          "duplicate_account"
+        ],
+        "interacting": true,
+        "clean": false,
+        "n_invoices": 60,
+        "n_payments": 48,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-09",
+      "episode_id": "ep-2ab9d2e67034b574",
+      "n_records": 351,
+      "n_documents": 146,
+      "n_issues": 3,
+      "fingerprint": "477309f6da04a39a08c8fd4dd94255f2b1c691d28989c6d3d71c50b3e9d047f7"
+    },
+    {
+      "name": "train-10",
+      "split": "train",
+      "seed": 1110,
+      "config": {
+        "difficulty": "hard",
+        "n_issues": 2,
+        "error_types": [
+          "duplicate_account",
+          "fx_conversion"
+        ],
+        "interacting": true,
+        "clean": false,
+        "n_invoices": 58,
+        "n_payments": 46,
+        "margin_invoices": 2,
+        "max_steps": 100,
+        "time_limit_seconds": 60
+      },
+      "directory": "train/train-10",
+      "episode_id": "ep-517d36713fb0f126",
+      "n_records": 311,
+      "n_documents": 126,
+      "n_issues": 2,
+      "fingerprint": "1d51d209aa3af8bba3d5865986342cdb80abce4825f250425f051a251fb1fb4e"
+    }
+  ],
+  "schema_version": "1.0"
+}

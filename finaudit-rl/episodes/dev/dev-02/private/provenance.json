@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-dafad527a8cdcfc2",
+  "seed": 2202,
+  "config": {
+    "difficulty": "easy",
+    "n_issues": 1,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": false,
+    "n_invoices": 53,
+    "n_payments": 41,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Zhana Talap Trading JSC",
+    "entities": [
+      "ENT-A"
+    ],
+    "base_currency": "KZT",
+    "timezone": "Asia/Qyzylorda",
+    "period": "Q3-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 295,
+    "n_invoices": 53,
+    "n_payments": 65,
+    "n_entries": 128,
+    "balanced": true,
+    "final_ledger_rows": 295,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00113",
+        "rows": [
+          {
+            "row_id": "L000258",
+            "timestamp": "2026-10-07T16:59:00+05:00",
+            "account": "1000",
+            "debit_minor": 155348200,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-09A3-0060"
+          },
+          {
+            "row_id": "L000259",
+            "timestamp": "2026-10-07T16:59:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155348200,
+            "currency": "KZT",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-09A3-0001",
+            "payment_id": "PAY-09A3-0060"
+          }
+        ],
+        "doc_period": 1
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000258",
+            "timestamp": "2026-09-26T15:13:00+05:00",
+            "account": "1000",
+            "debit_minor": 155348200,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-09A3-0060"
+          },
+          {
+            "row_id": "L000259",
+            "timestamp": "2026-09-26T15:13:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 155348200,
+            "currency": "KZT",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-09A3-0001",
+            "payment_id": "PAY-09A3-0060"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000258",
+        "L000259"
+      ],
+      "expected_amount_minor": 155348200
+    }
+  ],
+  "validation": {}
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-517d36713fb0f126",
+  "base_currency": "EUR",
+  "period_start": "2026-04-01T00:00:00+05:00",
+  "period_end": "2026-06-30T23:59:59+05:00",
+  "n_issues": 2,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000120",
+        "L000121",
+        "L000122",
+        "L000309",
+        "L000310",
+        "L000311"
+      ],
+      "expected_amount_minor": 838112,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-P-FF04-0002",
+          "L000120",
+          "L000121",
+          "L000122",
+          "L000309",
+          "L000310",
+          "L000311"
+        ]
+      ],
+      "description": "The source document DOC-P-FF04-0002 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00060",
+        "duplicate_entry": "E00137",
+        "source_doc": "DOC-P-FF04-0002",
+        "duplicate_timestamp": "2026-06-02T11:34:01+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-FF04-0020",
+        "L000039",
+        "L000040"
+      ],
+      "expected_amount_minor": 12125,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-FF04-0020",
+          "L000039",
+          "L000040",
+          "fx:2026-05-03:GBP:EUR",
+          "policy"
+        ],
+        [
+          "DOC-I-FF04-0020",
+          "L000039",
+          "L000040",
+          "fx:2026-05-03:GBP:EUR",
+          "fx:2026-05-12:GBP:EUR",
+          "policy"
+        ]
+      ],
+      "description": "The GBP invoice was translated at the rate for 2026-05-12 instead of the policy date 2026-05-03; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00020",
+        "kind": "accrual",
+        "correct_day": "2026-05-03",
+        "wrong_day": "2026-05-12",
+        "correct_rate": "1.16613001",
+        "wrong_rate": "1.17174693"
+      }
+    }
+  ]
+}

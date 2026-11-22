@@ -1,0 +1,74 @@
+{
+  "policy_id": "policy",
+  "schema_version": "1.0",
+  "base_currency": "USD",
+  "ledger_currency": "USD",
+  "period_start": "2026-04-01T00:00:00+02:00",
+  "period_end": "2026-06-30T23:59:59+02:00",
+  "timezone": "Europe/Berlin",
+  "fx_rate_date_rule": "document_date",
+  "fx_fallback": "nearest_prior",
+  "rounding": "half_up",
+  "amount_tolerance_minor": 2,
+  "amount_tolerance_bps": 5,
+  "recognition_rule": "ledger_period_must_equal_document_period",
+  "canonical_affected_ids_rule": "Affected IDs are the records whose own values are wrong, not every record needed as evidence. Use ledger row_id, invoice/payment doc_id, fx composite ID or 'policy'. Business invoice_id/payment_id aliases are accepted and normalized.",
+  "accounts": {
+    "1000": {
+      "name": "Cash and bank",
+      "type": "asset",
+      "normal": "debit"
+    },
+    "1100": {
+      "name": "Accounts receivable",
+      "type": "asset",
+      "normal": "debit"
+    },
+    "1200": {
+      "name": "Prepaid expenses",
+      "type": "asset",
+      "normal": "debit"
+    },
+    "2000": {
+      "name": "Accounts payable",
+      "type": "liability",
+      "normal": "credit"
+    },
+    "2100": {
+      "name": "Accrued expenses",
+      "type": "liability",
+      "normal": "credit"
+    },
+    "2200": {
+      "name": "Customer credits",
+      "type": "liability",
+      "normal": "credit"
+    },
+    "3000": {
+      "name": "Share capital and equity",
+      "type": "equity",
+      "normal": "credit"
+    },
+    "4000": {
+      "name": "Revenue",
+      "type": "income",
+      "normal": "credit"
+    },
+    "5000": {
+      "name": "Operating expenses",
+      "type": "expense",
+      "normal": "debit"
+    },
+    "5100": {
+      "name": "FX gain or loss",
+      "type": "income",
+      "normal": "credit"
+    },
+    "9999": {
+      "name": "Suspense and clearing",
+      "type": "asset",
+      "normal": "debit"
+    }
+  },
+  "period_definition": "A journal entry is in-period when its timestamp is inside [period_start, period_end] in the company timezone.  The recognition rule requires the entry period to equal the source document period (invoice issued_at for accruals; payment timestamp for settlements)."
+}

@@ -1,0 +1,56 @@
+{
+  "episodes": 10,
+  "policies": {
+    "random": {
+      "runs": 10,
+      "mean_reward": -1.0,
+      "min_reward": -1.0,
+      "max_reward": -1.0,
+      "mean_steps": 34.4,
+      "mean_tp": 0.0,
+      "mean_fp": 3.0,
+      "mean_fn": 3.5
+    },
+    "reconciliation": {
+      "runs": 10,
+      "mean_reward": 0.9331999999999999,
+      "min_reward": 0.9319999999999999,
+      "max_reward": 0.938,
+      "mean_steps": 34.4,
+      "mean_tp": 3.5,
+      "mean_fp": 0.0,
+      "mean_fn": 0.0
+    },
+    "mark_all": {
+      "runs": 10,
+      "mean_reward": -1.0,
+      "min_reward": -1.0,
+      "max_reward": -1.0,
+      "mean_steps": 34.4,
+      "mean_tp": 0.0,
+      "mean_fp": 30.0,
+      "mean_fn": 3.5
+    },
+    "silence": {
+      "runs": 10,
+      "mean_reward": -0.8,
+      "min_reward": -1.0,
+      "max_reward": 1.0,
+      "mean_steps": 1.0,
+      "mean_tp": 0.0,
+      "mean_fp": 0.0,
+      "mean_fn": 3.5
+    },
+    "oracle": {
+      "runs": 10,
+      "mean_reward": 1.0,
+      "min_reward": 1.0,
+      "max_reward": 1.0,
+      "mean_steps": 1.0,
+      "mean_tp": 3.5,
+      "mean_fp": 0.0,
+      "mean_fn": 0.0
+    }
+  },
+  "records": 50
+}

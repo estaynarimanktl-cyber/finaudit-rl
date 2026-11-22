@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-958405bb3520cd98",
+  "base_currency": "EUR",
+  "period_start": "2026-10-01T00:00:00+04:00",
+  "period_end": "2026-12-31T23:59:59+04:00",
+  "n_issues": 1,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-I-8461-0032",
+        "L000063",
+        "L000064"
+      ],
+      "expected_amount_minor": 2866646,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-8461-0032",
+          "L000063",
+          "L000064",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period -1 but the journal entry was posted at 2027-01-02T13:01:00+04:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00032",
+        "doc_period": -1,
+        "old_timestamp": "2026-09-27T16:25:00+04:00",
+        "new_timestamp": "2027-01-02T13:01:00+04:00"
+      }
+    }
+  ]
+}

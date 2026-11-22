@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-bc088ca16baca0d5",
+  "base_currency": "USD",
+  "period_start": "2026-04-01T00:00:00+05:00",
+  "period_end": "2026-06-30T23:59:59+05:00",
+  "n_issues": 6,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000159",
+        "L000160",
+        "L000161",
+        "L000329",
+        "L000330",
+        "L000331"
+      ],
+      "expected_amount_minor": 1704279,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-A43A-0013",
+          "L000159",
+          "L000160",
+          "L000161",
+          "L000329",
+          "L000330",
+          "L000331"
+        ]
+      ],
+      "description": "The source document DOC-P-A43A-0013 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00078",
+        "duplicate_entry": "E00146",
+        "source_doc": "DOC-P-A43A-0013",
+        "duplicate_timestamp": "2026-06-19T13:35:01+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000021",
+        "L000022",
+        "L000332",
+        "L000333"
+      ],
+      "expected_amount_minor": 920994,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-A43A-0011",
+          "L000021",
+          "L000022",
+          "L000332",
+          "L000333"
+        ]
+      ],
+      "description": "The source document DOC-I-A43A-0011 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00011",
+        "duplicate_entry": "E00147",
+        "source_doc": "DOC-I-A43A-0011",
+        "duplicate_timestamp": "2026-04-20T18:20:01+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-A43A-0033",
+        "L000209",
+        "L000210"
+      ],
+      "expected_amount_minor": 442849,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-A43A-0033",
+          "L000209",
+          "L000210",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-07-02T15:46:00+05:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00098",
+        "doc_period": 0,
+        "old_timestamp": "2026-05-19T11:49:00+05:00",
+        "new_timestamp": "2026-07-02T15:46:00+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-A43A-0044",
+        "L000087",
+        "L000088"
+      ],
+      "expected_amount_minor": 22819,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-A43A-0044",
+          "L000087",
+          "L000088",
+          "fx:2026-05-06:EUR:USD",
+          "policy"
+        ],
+        [
+          "DOC-I-A43A-0044",
+          "L000087",
+          "L000088",
+          "fx:2026-04-29:EUR:USD",
+          "fx:2026-05-06:EUR:USD",
+          "policy"
+        ]
+      ],
+      "description": "The EUR invoice was translated at the rate for 2026-04-29 instead of the policy date 2026-05-06; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00044",
+        "kind": "accrual",
+        "correct_day": "2026-05-06",
+        "wrong_day": "2026-04-29",
+        "correct_rate": "1.08736632",
+        "wrong_rate": "1.10298435"
+      }
+    },
+    {
+      "issue_id": "ISS-005",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "affected_ids": [
+        "DOC-I-A43A-0002",
+        "DOC-I-A43A-0061",
+        "DOC-P-A43A-0018",
+        "L000172"
+      ],
+      "expected_amount_minor": 357846,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-A43A-0002",
+          "DOC-I-A43A-0061",
+          "DOC-P-A43A-0018",
+          "L000171",
+          "L000172",
+          "policy"
+        ]
+      ],
+      "description": "The payment references one invoice but the ledger allocation was posted to a different invoice; the intended invoice remains open.",
+      "causal_change": {
+        "payment_doc": "DOC-P-A43A-0018",
+        "invoice_doc": "DOC-I-A43A-0061",
+        "subtype": "wrong_invoice",
+        "entry_id": "E00083"
+      }
+    },
+    {
+      "issue_id": "ISS-006",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-A43A-0070",
+        "L000306",
+        "L000308"
+      ],
+      "expected_amount_minor": 1601,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-A43A-0070",
+          "L000306",
+          "L000308",
+          "fx:2026-06-21:KZT:USD",
+          "policy"
+        ],
+        [
+          "DOC-P-A43A-0070",
+          "L000306",
+          "L000308",
+          "fx:2026-06-21:KZT:USD",
+          "fx:2026-06-29:KZT:USD",
+          "policy"
+        ]
+      ],
+      "description": "The KZT payment was translated at the rate for 2026-06-29 instead of the policy date 2026-06-21; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00135",
+        "kind": "settlement",
+        "correct_day": "2026-06-21",
+        "wrong_day": "2026-06-29",
+        "correct_rate": "0.00224107",
+        "wrong_rate": "0.00225980"
+      }
+    }
+  ]
+}

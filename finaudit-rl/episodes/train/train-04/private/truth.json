@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-7e61a0d44d098db3",
+  "base_currency": "USD",
+  "period_start": "2026-04-01T00:00:00+02:00",
+  "period_end": "2026-06-30T23:59:59+02:00",
+  "n_issues": 3,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-BBD9-0024",
+        "L000171",
+        "L000172"
+      ],
+      "expected_amount_minor": 181799,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-P-BBD9-0024",
+          "L000171",
+          "L000172",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 1 but the journal entry was posted at 2026-06-27T17:56:00+02:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00082",
+        "doc_period": 1,
+        "old_timestamp": "2026-07-26T14:06:00+02:00",
+        "new_timestamp": "2026-06-27T17:56:00+02:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000107",
+        "L000108",
+        "L000286",
+        "L000287"
+      ],
+      "expected_amount_minor": 586931,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-BBD9-0054",
+          "L000107",
+          "L000108",
+          "L000286",
+          "L000287"
+        ]
+      ],
+      "description": "The source document DOC-I-BBD9-0054 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00054",
+        "duplicate_entry": "E00129",
+        "source_doc": "DOC-I-BBD9-0054",
+        "duplicate_timestamp": "2026-04-02T13:17:01+02:00"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "affected_ids": [
+        "DOC-I-BBD9-0019",
+        "DOC-I-BBD9-0058",
+        "DOC-P-BBD9-0001",
+        "L000117"
+      ],
+      "expected_amount_minor": 517000,
+      "currency": "USD",
+      "evidence_sets": [
+        [
+          "DOC-I-BBD9-0019",
+          "DOC-I-BBD9-0058",
+          "DOC-P-BBD9-0001",
+          "L000117",
+          "L000118",
+          "policy"
+        ]
+      ],
+      "description": "The payment references one invoice but the ledger allocation was posted to a different invoice; the intended invoice remains open.",
+      "causal_change": {
+        "payment_doc": "DOC-P-BBD9-0001",
+        "invoice_doc": "DOC-I-BBD9-0019",
+        "subtype": "wrong_invoice",
+        "entry_id": "E00059"
+      }
+    }
+  ]
+}

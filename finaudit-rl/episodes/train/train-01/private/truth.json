@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-489fc67a2e709a01",
+  "base_currency": "EUR",
+  "period_start": "2026-07-01T00:00:00+04:00",
+  "period_end": "2026-09-30T23:59:59+04:00",
+  "n_issues": 0,
+  "clean": true,
+  "issues": []
+}

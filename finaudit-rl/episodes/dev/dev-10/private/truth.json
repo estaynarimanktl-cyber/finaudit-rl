@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-0176db18cc68eacd",
+  "base_currency": "EUR",
+  "period_start": "2026-07-01T00:00:00+05:00",
+  "period_end": "2026-09-30T23:59:59+05:00",
+  "n_issues": 3,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000160",
+        "L000161",
+        "L000162",
+        "L000163",
+        "L000326",
+        "L000327",
+        "L000328",
+        "L000329"
+      ],
+      "expected_amount_minor": 246173,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-P-4280-0016",
+          "L000160",
+          "L000161",
+          "L000162",
+          "L000163",
+          "L000326",
+          "L000327",
+          "L000328",
+          "L000329"
+        ]
+      ],
+      "description": "The source document DOC-P-4280-0016 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00076",
+        "duplicate_entry": "E00143",
+        "source_doc": "DOC-P-4280-0016",
+        "duplicate_timestamp": "2026-10-07T14:44:00+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-4280-0060",
+        "L000119",
+        "L000120"
+      ],
+      "expected_amount_minor": 975,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-I-4280-0060",
+          "L000119",
+          "L000120",
+          "fx:2026-09-25:GBP:EUR",
+          "policy"
+        ],
+        [
+          "DOC-I-4280-0060",
+          "L000119",
+          "L000120",
+          "fx:2026-09-25:GBP:EUR",
+          "fx:2026-10-04:GBP:EUR",
+          "policy"
+        ]
+      ],
+      "description": "The GBP invoice was translated at the rate for 2026-10-04 instead of the policy date 2026-09-25; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00060",
+        "kind": "accrual",
+        "correct_day": "2026-09-25",
+        "wrong_day": "2026-10-04",
+        "correct_rate": "1.17172749",
+        "wrong_rate": "1.16642506"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-4280-0024",
+        "L000182",
+        "L000183"
+      ],
+      "expected_amount_minor": 2865,
+      "currency": "EUR",
+      "evidence_sets": [
+        [
+          "DOC-P-4280-0024",
+          "L000182",
+          "L000183",
+          "fx:2026-10-13:AED:EUR",
+          "policy"
+        ],
+        [
+          "DOC-P-4280-0024",
+          "L000182",
+          "L000183",
+          "fx:2026-10-04:AED:EUR",
+          "fx:2026-10-13:AED:EUR",
+          "policy"
+        ]
+      ],
+      "description": "The AED payment was translated at the rate for 2026-10-04 instead of the policy date 2026-10-13; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00084",
+        "kind": "settlement",
+        "correct_day": "2026-10-13",
+        "wrong_day": "2026-10-04",
+        "correct_rate": "0.25416335",
+        "wrong_rate": "0.25478874"
+      }
+    }
+  ]
+}

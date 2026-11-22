@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-63fe0b07fc8fc0c3",
+  "base_currency": "KZT",
+  "period_start": "2026-04-01T00:00:00+00:00",
+  "period_end": "2026-06-30T23:59:59+00:00",
+  "n_issues": 2,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-6325-0032",
+        "L000192",
+        "L000194"
+      ],
+      "expected_amount_minor": 1001991,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-6325-0032",
+          "L000192",
+          "L000194",
+          "fx:2026-04-09:AED:KZT",
+          "policy"
+        ],
+        [
+          "DOC-P-6325-0032",
+          "L000192",
+          "L000194",
+          "fx:2026-04-03:AED:KZT",
+          "fx:2026-04-09:AED:KZT",
+          "policy"
+        ]
+      ],
+      "description": "The AED payment was translated at the rate for 2026-04-03 instead of the policy date 2026-04-09; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00088",
+        "kind": "settlement",
+        "correct_day": "2026-04-09",
+        "wrong_day": "2026-04-03",
+        "correct_rate": "127.27078833",
+        "wrong_rate": "126.41343288"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-6325-0020",
+        "L000159",
+        "L000160",
+        "L000161"
+      ],
+      "expected_amount_minor": 148515496,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-6325-0020",
+          "L000159",
+          "L000160",
+          "L000161",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-03-27T16:54:00+00:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00076",
+        "doc_period": 0,
+        "old_timestamp": "2026-06-07T14:41:00+00:00",
+        "new_timestamp": "2026-03-27T16:54:00+00:00"
+      }
+    }
+  ]
+}

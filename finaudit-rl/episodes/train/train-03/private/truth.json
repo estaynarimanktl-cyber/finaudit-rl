@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-2092768d6ff2851b",
+  "base_currency": "KZT",
+  "period_start": "2026-01-01T00:00:00+04:00",
+  "period_end": "2026-03-31T23:59:59+04:00",
+  "n_issues": 2,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "affected_ids": [
+        "DOC-I-70B5-0008",
+        "DOC-P-70B5-0003",
+        "L000116",
+        "L000294"
+      ],
+      "expected_amount_minor": 74544030,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-I-70B5-0008",
+          "DOC-P-70B5-0003",
+          "L000115",
+          "L000116",
+          "L000294",
+          "policy"
+        ]
+      ],
+      "description": "Only part of the payment was allocated to the referenced invoice; the rest was parked in suspense, leaving an unexplained open balance.",
+      "causal_change": {
+        "payment_doc": "DOC-P-70B5-0003",
+        "invoice_doc": "DOC-I-70B5-0008",
+        "subtype": "partial_allocation",
+        "entry_id": "E00058"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-70B5-0054",
+        "L000238",
+        "L000240"
+      ],
+      "expected_amount_minor": 3685160,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-70B5-0054",
+          "L000238",
+          "L000240",
+          "fx:2026-04-01:USD:KZT",
+          "policy"
+        ],
+        [
+          "DOC-P-70B5-0054",
+          "L000238",
+          "L000240",
+          "fx:2026-03-22:USD:KZT",
+          "fx:2026-04-01:USD:KZT",
+          "policy"
+        ]
+      ],
+      "description": "The USD payment was translated at the rate for 2026-03-22 instead of the policy date 2026-04-01; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00109",
+        "kind": "settlement",
+        "correct_day": "2026-04-01",
+        "wrong_day": "2026-03-22",
+        "correct_rate": "447.58732585",
+        "wrong_rate": "443.49108287"
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-3685fb6160e30048",
+  "base_currency": "KZT",
+  "period_start": "2026-10-01T00:00:00+05:00",
+  "period_end": "2026-12-31T23:59:59+05:00",
+  "n_issues": 3,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000061",
+        "L000062",
+        "L000298",
+        "L000299"
+      ],
+      "expected_amount_minor": 338255000,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-I-C5F6-0031",
+          "L000061",
+          "L000062",
+          "L000298",
+          "L000299"
+        ]
+      ],
+      "description": "The source document DOC-I-C5F6-0031 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00031",
+        "duplicate_entry": "E00133",
+        "source_doc": "DOC-I-C5F6-0031",
+        "duplicate_timestamp": "2026-10-27T13:39:01+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-I-C5F6-0037",
+        "L000073",
+        "L000074"
+      ],
+      "expected_amount_minor": 9932403,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-I-C5F6-0037",
+          "L000073",
+          "L000074",
+          "fx:2026-12-05:GBP:KZT",
+          "policy"
+        ],
+        [
+          "DOC-I-C5F6-0037",
+          "L000073",
+          "L000074",
+          "fx:2026-11-28:GBP:KZT",
+          "fx:2026-12-05:GBP:KZT",
+          "policy"
+        ]
+      ],
+      "description": "The GBP invoice was translated at the rate for 2026-11-28 instead of the policy date 2026-12-05; the base-currency accrual is wrong.",
+      "causal_change": {
+        "entry_id": "E00037",
+        "kind": "accrual",
+        "correct_day": "2026-12-05",
+        "wrong_day": "2026-11-28",
+        "correct_rate": "576.92020582",
+        "wrong_rate": "571.19316727"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-C5F6-0027",
+        "L000183",
+        "L000184",
+        "L000185"
+      ],
+      "expected_amount_minor": 1000552713,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-C5F6-0027",
+          "L000183",
+          "L000184",
+          "L000185",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-09-30T13:07:00+05:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00086",
+        "doc_period": 0,
+        "old_timestamp": "2026-12-26T17:35:00+05:00",
+        "new_timestamp": "2026-09-30T13:07:00+05:00"
+      }
+    }
+  ]
+}

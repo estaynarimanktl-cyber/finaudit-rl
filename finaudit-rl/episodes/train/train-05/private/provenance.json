@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-911e7cbb60e92950",
+  "seed": 1105,
+  "config": {
+    "difficulty": "medium",
+    "n_issues": 4,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": false,
+    "n_invoices": 60,
+    "n_payments": 48,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Alatau Precision Works",
+    "entities": [
+      "ENT-A",
+      "ENT-B",
+      "ENT-C"
+    ],
+    "base_currency": "KZT",
+    "timezone": "Asia/Almaty",
+    "period": "Q2-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 320,
+    "n_invoices": 60,
+    "n_payments": 73,
+    "n_entries": 143,
+    "balanced": true,
+    "final_ledger_rows": 323,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00122",
+        "rows": [
+          {
+            "row_id": "L000269",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "2000",
+            "debit_minor": 459016687,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-8412-0032",
+            "payment_id": "PAY-8412-0062"
+          },
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 462068270,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0062"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "5100",
+            "debit_minor": 3051583,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0062"
+          }
+        ],
+        "kind": "settlement"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000269",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "2000",
+            "debit_minor": 459016687,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-8412-0032",
+            "payment_id": "PAY-8412-0062"
+          },
+          {
+            "row_id": "L000270",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 459900816,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0062"
+          },
+          {
+            "row_id": "L000271",
+            "timestamp": "2026-05-27T10:36:00+05:00",
+            "account": "5100",
+            "debit_minor": 884129,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-B",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0062"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000270",
+        "L000271"
+      ],
+      "expected_amount_minor": 2167454
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00091",
+        "source_doc": "DOC-P-8412-0031",
+        "rows": [
+          {
+            "row_id": "L000190",
+            "timestamp": "2026-04-30T12:10:00+05:00",
+            "account": "1000",
+            "debit_minor": 323891600,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0031"
+          },
+          {
+            "row_id": "L000191",
+            "timestamp": "2026-04-30T12:10:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 323891600,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0029",
+            "payment_id": "PAY-8412-0031"
+          }
+        ],
+        "total_debit": 323891600
+      },
+      "after": {
+        "entry_id": "E00144",
+        "rows": [
+          {
+            "row_id": "L000321",
+            "timestamp": "2026-04-30T12:10:01+05:00",
+            "account": "1000",
+            "debit_minor": 323891600,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0031"
+          },
+          {
+            "row_id": "L000322",
+            "timestamp": "2026-04-30T12:10:01+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 323891600,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0029",
+            "payment_id": "PAY-8412-0031"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000321",
+        "L000322"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 323891600
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00117",
+        "rows": [
+          {
+            "row_id": "L000257",
+            "timestamp": "2026-05-21T13:41:00+05:00",
+            "account": "1000",
+            "debit_minor": 677634038,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0057"
+          },
+          {
+            "row_id": "L000258",
+            "timestamp": "2026-05-21T13:41:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 676132169,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0011",
+            "payment_id": "PAY-8412-0057"
+          },
+          {
+            "row_id": "L000259",
+            "timestamp": "2026-05-21T13:41:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 1501869,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0057"
+          }
+        ],
+        "doc_period": 0
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000257",
+            "timestamp": "2026-03-31T15:21:00+05:00",
+            "account": "1000",
+            "debit_minor": 677634038,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0057"
+          },
+          {
+            "row_id": "L000258",
+            "timestamp": "2026-03-31T15:21:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 676132169,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0011",
+            "payment_id": "PAY-8412-0057"
+          },
+          {
+            "row_id": "L000259",
+            "timestamp": "2026-03-31T15:21:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 1501869,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0057"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000257",
+        "L000258",
+        "L000259"
+      ],
+      "expected_amount_minor": 677634038
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00074",
+        "payment_doc": "DOC-P-8412-0014",
+        "invoice_doc": "DOC-I-8412-0003",
+        "rows": [
+          {
+            "row_id": "L000152",
+            "timestamp": "2026-08-14T16:24:00+05:00",
+            "account": "1000",
+            "debit_minor": 186394157,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0014"
+          },
+          {
+            "row_id": "L000153",
+            "timestamp": "2026-08-14T16:24:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 186394157,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0003",
+            "payment_id": "PAY-8412-0014"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000152",
+            "timestamp": "2026-08-14T16:24:00+05:00",
+            "account": "1000",
+            "debit_minor": 186394157,
+            "credit_minor": 0,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0014"
+          },
+          {
+            "row_id": "L000153",
+            "timestamp": "2026-08-14T16:24:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 138004298,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": "INV-8412-0003",
+            "payment_id": "PAY-8412-0014"
+          },
+          {
+            "row_id": "L000323",
+            "timestamp": "2026-08-14T16:24:00+05:00",
+            "account": "9999",
+            "debit_minor": 0,
+            "credit_minor": 48389859,
+            "currency": "KZT",
+            "entity_id": "ENT-C",
+            "invoice_id": null,
+            "payment_id": "PAY-8412-0014"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000323"
+      ],
+      "rows_modified": [
+        "L000153"
+      ],
+      "expected_amount_minor": 48389859
+    }
+  ],
+  "validation": {}
+}

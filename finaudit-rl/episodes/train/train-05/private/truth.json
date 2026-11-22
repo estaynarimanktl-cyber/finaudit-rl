@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "episode_id": "ep-911e7cbb60e92950",
+  "base_currency": "KZT",
+  "period_start": "2026-04-01T00:00:00+05:00",
+  "period_end": "2026-06-30T23:59:59+05:00",
+  "n_issues": 4,
+  "clean": false,
+  "issues": [
+    {
+      "issue_id": "ISS-001",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "affected_ids": [
+        "DOC-P-8412-0062",
+        "L000270",
+        "L000271"
+      ],
+      "expected_amount_minor": 2167454,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-8412-0062",
+          "L000270",
+          "L000271",
+          "fx:2026-05-27:EUR:KZT",
+          "policy"
+        ],
+        [
+          "DOC-P-8412-0062",
+          "L000270",
+          "L000271",
+          "fx:2026-05-27:EUR:KZT",
+          "fx:2026-06-03:EUR:KZT",
+          "policy"
+        ]
+      ],
+      "description": "The EUR payment was translated at the rate for 2026-06-03 instead of the policy date 2026-05-27; cash and the FX plug are wrong.",
+      "causal_change": {
+        "entry_id": "E00122",
+        "kind": "settlement",
+        "correct_day": "2026-05-27",
+        "wrong_day": "2026-06-03",
+        "correct_rate": "496.68738054",
+        "wrong_rate": "494.35753678"
+      }
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "affected_ids": [
+        "L000190",
+        "L000191",
+        "L000321",
+        "L000322"
+      ],
+      "expected_amount_minor": 323891600,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-8412-0031",
+          "L000190",
+          "L000191",
+          "L000321",
+          "L000322"
+        ]
+      ],
+      "description": "The source document DOC-P-8412-0031 was posted twice; the second balanced journal entry duplicates the first. Expected overstatement is the booked debit total.",
+      "causal_change": {
+        "target_entry": "E00091",
+        "duplicate_entry": "E00144",
+        "source_doc": "DOC-P-8412-0031",
+        "duplicate_timestamp": "2026-04-30T12:10:01+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "affected_ids": [
+        "DOC-P-8412-0057",
+        "L000257",
+        "L000258",
+        "L000259"
+      ],
+      "expected_amount_minor": 677634038,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-P-8412-0057",
+          "L000257",
+          "L000258",
+          "L000259",
+          "policy"
+        ]
+      ],
+      "description": "The source document belongs to period 0 but the journal entry was posted at 2026-03-31T15:21:00+05:00, which is in a different period; the policy requires the entry period to equal the document period.",
+      "causal_change": {
+        "entry_id": "E00117",
+        "doc_period": 0,
+        "old_timestamp": "2026-05-21T13:41:00+05:00",
+        "new_timestamp": "2026-03-31T15:21:00+05:00"
+      }
+    },
+    {
+      "issue_id": "ISS-004",
+      "type": "payment_allocation",
+      "subtype": "partial_allocation",
+      "affected_ids": [
+        "DOC-I-8412-0003",
+        "DOC-P-8412-0014",
+        "L000153",
+        "L000323"
+      ],
+      "expected_amount_minor": 48389859,
+      "currency": "KZT",
+      "evidence_sets": [
+        [
+          "DOC-I-8412-0003",
+          "DOC-P-8412-0014",
+          "L000152",
+          "L000153",
+          "L000323",
+          "policy"
+        ]
+      ],
+      "description": "Only part of the payment was allocated to the referenced invoice; the rest was parked in suspense, leaving an unexplained open balance.",
+      "causal_change": {
+        "payment_doc": "DOC-P-8412-0014",
+        "invoice_doc": "DOC-I-8412-0003",
+        "subtype": "partial_allocation",
+        "entry_id": "E00074"
+      }
+    }
+  ]
+}

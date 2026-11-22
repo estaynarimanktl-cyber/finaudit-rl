@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-517d36713fb0f126",
+  "seed": 1110,
+  "config": {
+    "difficulty": "hard",
+    "n_issues": 2,
+    "error_types": [
+      "duplicate_account",
+      "fx_conversion"
+    ],
+    "interacting": true,
+    "clean": false,
+    "n_invoices": 58,
+    "n_payments": 46,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Orken Digital Infrastructure",
+    "entities": [
+      "ENT-A"
+    ],
+    "base_currency": "EUR",
+    "timezone": "Asia/Almaty",
+    "period": "Q2-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 308,
+    "n_invoices": 58,
+    "n_payments": 68,
+    "n_entries": 136,
+    "balanced": true,
+    "final_ledger_rows": 311,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00060",
+        "source_doc": "DOC-P-FF04-0002",
+        "rows": [
+          {
+            "row_id": "L000120",
+            "timestamp": "2026-06-02T11:34:00+05:00",
+            "account": "1000",
+            "debit_minor": 838112,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-FF04-0002"
+          },
+          {
+            "row_id": "L000121",
+            "timestamp": "2026-06-02T11:34:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 835279,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": "PAY-FF04-0002"
+          },
+          {
+            "row_id": "L000122",
+            "timestamp": "2026-06-02T11:34:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 2833,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-FF04-0002"
+          }
+        ],
+        "total_debit": 838112
+      },
+      "after": {
+        "entry_id": "E00137",
+        "rows": [
+          {
+            "row_id": "L000309",
+            "timestamp": "2026-06-02T11:34:01+05:00",
+            "account": "1000",
+            "debit_minor": 838112,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-FF04-0002"
+          },
+          {
+            "row_id": "L000310",
+            "timestamp": "2026-06-02T11:34:01+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 835279,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": "PAY-FF04-0002"
+          },
+          {
+            "row_id": "L000311",
+            "timestamp": "2026-06-02T11:34:01+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 2833,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-FF04-0002"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000309",
+        "L000310",
+        "L000311"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 838112
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00020",
+        "rows": [
+          {
+            "row_id": "L000039",
+            "timestamp": "2026-05-03T12:39:00+05:00",
+            "account": "1100",
+            "debit_minor": 2517325,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000040",
+            "timestamp": "2026-05-03T12:39:00+05:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 2517325,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": null
+          }
+        ],
+        "kind": "accrual"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000039",
+            "timestamp": "2026-05-03T12:39:00+05:00",
+            "account": "1100",
+            "debit_minor": 2529450,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000040",
+            "timestamp": "2026-05-03T12:39:00+05:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 2529450,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-FF04-0020",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000039",
+        "L000040"
+      ],
+      "expected_amount_minor": 12125
+    }
+  ],
+  "validation": {}
+}

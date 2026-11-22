@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-489fc67a2e709a01",
+  "seed": 1101,
+  "config": {
+    "difficulty": "easy",
+    "n_issues": 0,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": true,
+    "n_invoices": 48,
+    "n_payments": 38,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Tien Shan Components LLP",
+    "entities": [
+      "ENT-A"
+    ],
+    "base_currency": "EUR",
+    "timezone": "Asia/Dubai",
+    "period": "Q3-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 284,
+    "n_invoices": 48,
+    "n_payments": 66,
+    "n_entries": 124,
+    "balanced": true,
+    "final_ledger_rows": 284,
+    "balanced_after_errors": true
+  },
+  "modifications": [],
+  "validation": {}
+}

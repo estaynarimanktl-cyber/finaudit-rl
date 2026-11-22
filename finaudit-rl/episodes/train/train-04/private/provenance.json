@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-7e61a0d44d098db3",
+  "seed": 1104,
+  "config": {
+    "difficulty": "medium",
+    "n_issues": 3,
+    "error_types": [
+      "duplicate_account",
+      "payment_allocation",
+      "fx_conversion",
+      "period_cutoff"
+    ],
+    "interacting": false,
+    "clean": false,
+    "n_invoices": 58,
+    "n_payments": 45,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Steppe Orchard Foods LLP",
+    "entities": [
+      "ENT-A",
+      "ENT-B"
+    ],
+    "base_currency": "USD",
+    "timezone": "Europe/Berlin",
+    "period": "Q2-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 285,
+    "n_invoices": 58,
+    "n_payments": 60,
+    "n_entries": 128,
+    "balanced": true,
+    "final_ledger_rows": 287,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "period_cutoff",
+      "subtype": "cross_period_posting",
+      "action": "move_entry_across_period",
+      "before": {
+        "entry_id": "E00082",
+        "rows": [
+          {
+            "row_id": "L000171",
+            "timestamp": "2026-07-26T14:06:00+02:00",
+            "account": "1000",
+            "debit_minor": 181799,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-BBD9-0024"
+          },
+          {
+            "row_id": "L000172",
+            "timestamp": "2026-07-26T14:06:00+02:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 181799,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-BBD9-0027",
+            "payment_id": "PAY-BBD9-0024"
+          }
+        ],
+        "doc_period": 1
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000171",
+            "timestamp": "2026-06-27T17:56:00+02:00",
+            "account": "1000",
+            "debit_minor": 181799,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-BBD9-0024"
+          },
+          {
+            "row_id": "L000172",
+            "timestamp": "2026-06-27T17:56:00+02:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 181799,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-BBD9-0027",
+            "payment_id": "PAY-BBD9-0024"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000171",
+        "L000172"
+      ],
+      "expected_amount_minor": 181799
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00054",
+        "source_doc": "DOC-I-BBD9-0054",
+        "rows": [
+          {
+            "row_id": "L000107",
+            "timestamp": "2026-04-02T13:17:00+02:00",
+            "account": "5000",
+            "debit_minor": 586931,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-BBD9-0054",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000108",
+            "timestamp": "2026-04-02T13:17:00+02:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 586931,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-BBD9-0054",
+            "payment_id": null
+          }
+        ],
+        "total_debit": 586931
+      },
+      "after": {
+        "entry_id": "E00129",
+        "rows": [
+          {
+            "row_id": "L000286",
+            "timestamp": "2026-04-02T13:17:01+02:00",
+            "account": "5000",
+            "debit_minor": 586931,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-BBD9-0054",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000287",
+            "timestamp": "2026-04-02T13:17:01+02:00",
+            "account": "2000",
+            "debit_minor": 0,
+            "credit_minor": 586931,
+            "currency": "USD",
+            "entity_id": "ENT-B",
+            "invoice_id": "INV-BBD9-0054",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [
+        "L000286",
+        "L000287"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 586931
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "payment_allocation",
+      "subtype": "wrong_invoice",
+      "action": "modify_allocation",
+      "before": {
+        "entry_id": "E00059",
+        "payment_doc": "DOC-P-BBD9-0001",
+        "invoice_doc": "DOC-I-BBD9-0019",
+        "rows": [
+          {
+            "row_id": "L000117",
+            "timestamp": "2026-06-09T15:40:00+02:00",
+            "account": "2000",
+            "debit_minor": 517000,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-BBD9-0019",
+            "payment_id": "PAY-BBD9-0001"
+          },
+          {
+            "row_id": "L000118",
+            "timestamp": "2026-06-09T15:40:00+02:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 517000,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-BBD9-0001"
+          }
+        ]
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000117",
+            "timestamp": "2026-06-09T15:40:00+02:00",
+            "account": "2000",
+            "debit_minor": 517000,
+            "credit_minor": 0,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-BBD9-0058",
+            "payment_id": "PAY-BBD9-0001"
+          },
+          {
+            "row_id": "L000118",
+            "timestamp": "2026-06-09T15:40:00+02:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 517000,
+            "currency": "USD",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-BBD9-0001"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000117"
+      ],
+      "expected_amount_minor": 517000
+    }
+  ],
+  "validation": {}
+}

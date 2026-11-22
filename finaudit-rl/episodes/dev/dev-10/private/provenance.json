@@ -1,0 +1,312 @@
+{
+  "schema_version": "1.0",
+  "generator_version": "1.0.0",
+  "episode_id": "ep-0176db18cc68eacd",
+  "seed": 2210,
+  "config": {
+    "difficulty": "hard",
+    "n_issues": 3,
+    "error_types": [
+      "duplicate_account",
+      "fx_conversion"
+    ],
+    "interacting": true,
+    "clean": false,
+    "n_invoices": 60,
+    "n_payments": 48,
+    "margin_invoices": 2,
+    "max_steps": 100,
+    "time_limit_seconds": 60
+  },
+  "company": {
+    "name": "Saryarka Textile Group",
+    "entities": [
+      "ENT-A",
+      "ENT-B",
+      "ENT-C"
+    ],
+    "base_currency": "EUR",
+    "timezone": "Asia/Almaty",
+    "period": "Q3-2026"
+  },
+  "baseline": {
+    "n_ledger_rows": 325,
+    "n_invoices": 60,
+    "n_payments": 72,
+    "n_entries": 142,
+    "balanced": true,
+    "final_ledger_rows": 329,
+    "balanced_after_errors": true
+  },
+  "modifications": [
+    {
+      "issue_id": "ISS-001",
+      "type": "duplicate_account",
+      "subtype": "second_posting",
+      "action": "insert_duplicate_entry",
+      "before": {
+        "entry_id": "E00076",
+        "source_doc": "DOC-P-4280-0016",
+        "rows": [
+          {
+            "row_id": "L000160",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "1000",
+            "debit_minor": 244891,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000161",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 215481,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000162",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "2200",
+            "debit_minor": 0,
+            "credit_minor": 30692,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000163",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "5100",
+            "debit_minor": 1282,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          }
+        ],
+        "total_debit": 246173
+      },
+      "after": {
+        "entry_id": "E00143",
+        "rows": [
+          {
+            "row_id": "L000326",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "1000",
+            "debit_minor": 244891,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000327",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "1100",
+            "debit_minor": 0,
+            "credit_minor": 215481,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000328",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "2200",
+            "debit_minor": 0,
+            "credit_minor": 30692,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          },
+          {
+            "row_id": "L000329",
+            "timestamp": "2026-10-07T14:44:00+05:00",
+            "account": "5100",
+            "debit_minor": 1282,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0016"
+          }
+        ]
+      },
+      "rows_added": [
+        "L000326",
+        "L000327",
+        "L000328",
+        "L000329"
+      ],
+      "rows_modified": [],
+      "expected_amount_minor": 246173
+    },
+    {
+      "issue_id": "ISS-002",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00060",
+        "rows": [
+          {
+            "row_id": "L000119",
+            "timestamp": "2026-09-25T08:43:00+05:00",
+            "account": "1100",
+            "debit_minor": 215481,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000120",
+            "timestamp": "2026-09-25T08:43:00+05:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 215481,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": null
+          }
+        ],
+        "kind": "accrual"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000119",
+            "timestamp": "2026-09-25T08:43:00+05:00",
+            "account": "1100",
+            "debit_minor": 214506,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": null
+          },
+          {
+            "row_id": "L000120",
+            "timestamp": "2026-09-25T08:43:00+05:00",
+            "account": "4000",
+            "debit_minor": 0,
+            "credit_minor": 214506,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0060",
+            "payment_id": null
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000119",
+        "L000120"
+      ],
+      "expected_amount_minor": 975
+    },
+    {
+      "issue_id": "ISS-003",
+      "type": "fx_conversion",
+      "subtype": "wrong_rate_date",
+      "action": "change_fx_translation",
+      "before": {
+        "entry_id": "E00084",
+        "rows": [
+          {
+            "row_id": "L000181",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "2000",
+            "debit_minor": 1178916,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0027",
+            "payment_id": "PAY-4280-0024"
+          },
+          {
+            "row_id": "L000182",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 1164526,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0024"
+          },
+          {
+            "row_id": "L000183",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 14390,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0024"
+          }
+        ],
+        "kind": "settlement"
+      },
+      "after": {
+        "rows": [
+          {
+            "row_id": "L000181",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "2000",
+            "debit_minor": 1178916,
+            "credit_minor": 0,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": "INV-4280-0027",
+            "payment_id": "PAY-4280-0024"
+          },
+          {
+            "row_id": "L000182",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "1000",
+            "debit_minor": 0,
+            "credit_minor": 1167391,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0024"
+          },
+          {
+            "row_id": "L000183",
+            "timestamp": "2026-10-13T10:52:00+05:00",
+            "account": "5100",
+            "debit_minor": 0,
+            "credit_minor": 11525,
+            "currency": "EUR",
+            "entity_id": "ENT-A",
+            "invoice_id": null,
+            "payment_id": "PAY-4280-0024"
+          }
+        ]
+      },
+      "rows_added": [],
+      "rows_modified": [
+        "L000182",
+        "L000183"
+      ],
+      "expected_amount_minor": 2865
+    }
+  ],
+  "validation": {}
+}
